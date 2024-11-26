@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "200623376423",
+    "project_id": "reminderapp-d205d",
+    "storage_bucket": "reminderapp-d205d.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:200623376423:android:7f5a88e271da83cf84e602",
+        "android_client_info": {
+          "package_name": "com.example.reminderapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAghu7JLW6b03anANfqYyiNHElxHfpYuT0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

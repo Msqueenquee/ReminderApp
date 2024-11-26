@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@android:color/white"
+    tools:context=".NewReminderActivity">
+
+    <!-- Toolbar Section -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:paddingBottom="16dp">
+
+        <!-- Cancel Button -->
+        <TextView
+            android:id="@+id/cancel_button"
+            android:layout_width="wrap_content"
+            android:layout_height="52dp"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:gravity="start"
+            android:onClick="onCancelClicked"
+            android:padding="8dp"
+            android:text="Cancel"
+            android:textColor="@android:color/holo_blue_dark" />
+
+        <!-- Title -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New Reminder"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:layout_weight="2" />
+
+        <!-- Add Button -->
+        <TextView
+            android:id="@+id/add_button"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:gravity="end"
+            android:onClick="onAddClicked"
+            android:padding="8dp"
+            android:text="Add"
+            android:textColor="@android:color/holo_blue_dark" />
+    </LinearLayout>
+
+    <!-- Input Section -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@android:color/darker_gray"
+        android:padding="16dp"
+        android:layout_marginBottom="16dp">
+
+        <!-- Title EditText -->
+        <EditText
+            android:id="@+id/titleEditText"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:hint="Title"
+            android:inputType="text"
+            android:singleLine="true"
+            android:padding="12dp"
+            android:elevation="4dp"
+            android:background="@drawable/edittext_background"
+            android:textColorHint="@android:color/darker_gray"
+            android:textColor="@android:color/black" />
+
+        <!-- Notes EditText -->
+        <EditText
+            android:id="@+id/notesEditText"
+            android:layout_width="match_parent"
+            android:layout_height="62dp"
+            android:background="@drawable/edittext_background"
+            android:hint="Notes"
+            android:elevation="4dp"
+            android:inputType="textMultiLine"
+            android:padding="12dp"
+            android:textColor="@android:color/black"
+            android:textColorHint="@android:color/darker_gray" />
+    </LinearLayout>
+
+    <!-- Detail Section -->
+    <LinearLayout
+        android:id="@+id/detail_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/darker_gray"
+        android:clickable="true"
+        android:focusable="true"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:onClick="onDetailClicked">
+
+        <!-- Detail Text -->
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Detail"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
+
+        <!-- Arrow Icon -->
+        <ImageView
+            android:id="@+id/reminderImageView"
+            android:layout_width="34dp"
+            android:layout_height="21dp"
+            android:src="@android:drawable/arrow_down_float"
+            app:tint="@android:color/black" />
+    </LinearLayout>
+
+</LinearLayout>
