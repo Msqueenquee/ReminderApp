@@ -1,56 +1,59 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:padding="16dp"
-    android:background="@android:color/white">
+    android:background="#FFFFFF"> <!-- Latar belakang putih pada RelativeLayout utama -->
 
-    <!-- Tombol Kembali -->
     <LinearLayout
-        android:layout_width="147dp"
-        android:layout_height="58dp"
+        android:id="@+id/backButtonLayout"
+        android:layout_width="136dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="-8dp"
+        android:layout_marginTop="8dp"
+        android:background="#FFFFFF"
         android:clickable="true"
         android:focusable="true"
-        android:gravity="center_vertical"
-        android:onClick="goBack"
-        android:orientation="horizontal"
-        android:padding="8dp">
+        android:orientation="horizontal"> <!-- Latar belakang putih pada LinearLayout backButtonLayout -->
 
         <ImageView
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:src="@android:drawable/ic_media_previous"
-            app:tint="@android:color/holo_blue_dark" />
+            android:id="@+id/backButtonIcon"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:contentDescription="Back Button"
+            android:src="@drawable/ic_back" />
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:id="@+id/listTitle"
+            android:layout_width="48dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="11dp"
             android:text="List"
-            android:textColor="@android:color/holo_blue_dark"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textColor="#0000FF"
+            android:textSize="18sp" />
+
     </LinearLayout>
 
-    <!-- Judul Halaman -->
     <TextView
-        android:id="@+id/page_title"
-        android:layout_width="171dp"
-        android:layout_height="46dp"
-        android:layout_marginTop="16dp"
+        android:id="@+id/reminderHeader"
+        android:layout_width="264dp"
+        android:layout_height="56dp"
+        android:layout_below="@id/backButtonLayout"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="19dp"
         android:text="Reminder"
-        android:textColor="@android:color/holo_orange_dark"
+        android:textColor="#FFA500"
         android:textSize="30sp"
         android:textStyle="bold" />
 
-    <!-- Daftar Reminder -->
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view"
+        android:id="@+id/reminderRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="16dp"
-        android:padding="8dp" />
-</LinearLayout>
+        android:layout_below="@id/reminderHeader"
+        android:layout_marginTop="8dp"
+        android:background="#FFFFFF" /> <!-- Latar belakang putih pada RecyclerView -->
+
+</RelativeLayout>

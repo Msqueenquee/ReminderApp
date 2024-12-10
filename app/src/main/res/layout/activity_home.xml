@@ -1,185 +1,290 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_light"
-    android:padding="16dp">
+    android:background="@color/background_light">
 
-    <!-- Search Bar -->
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/searchBarLayout"
-        android:layout_width="0dp"
+    <!-- Header -->
+    <LinearLayout
+        android:id="@+id/headerLayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Search"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:startIconDrawable="@drawable/ic_search">
+        android:background="@drawable/background_header"
+        android:elevation="100dp"
+        android:orientation="horizontal"
+        android:padding="16dp">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/searchBar"
-            android:layout_width="match_parent"
+        <!-- Search Bar -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/searchBarLayout"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:imeOptions="actionSearch"
-            android:inputType="text" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_weight="1"
+            android:hint="Search"
+            android:textColorHint="@color/black"
+            app:boxBackgroundColor="@color/gray"
+            app:boxBackgroundMode="filled"
+            app:boxStrokeColor="@android:color/transparent"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidthFocused="0dp"
+            app:shapeAppearanceOverlay="@style/RoundedCorner"
+            app:startIconDrawable="@drawable/ic_search"
+            app:startIconTint="@color/black">
 
-    <!-- Weather Card -->
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/weatherCard"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        app:cardElevation="4dp"
-        app:cardCornerRadius="8dp"
-        app:cardBackgroundColor="@color/weather_card_background"
-        app:layout_constraintTop_toBottomOf="@id/searchBarLayout"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="16dp">
-
-            <TextView
-                android:id="@+id/weatherLocation"
-                android:layout_width="wrap_content"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/searchBar"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Location"
-                android:textColor="@color/text_primary"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                android:imeOptions="actionSearch"
+                android:inputType="text"
+                android:textColor="@android:color/black"
+                android:textColorHint="@color/black" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Logout Button -->
+        <ImageView
+            android:id="@+id/logoutIcon"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="8dp"
+            android:background="?android:selectableItemBackgroundBorderless"
+            android:contentDescription="Logout"
+            android:padding="8dp"
+            android:src="@drawable/ic_logout" />
+
+
+    </LinearLayout>
+
+
+    <!-- Main Content -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="72dp"
+        android:background="@color/background_light"
+        android:padding="16dp">
+
+        <!-- Weather Card -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/weatherCard"
+            android:layout_width="342dp"
+            android:layout_height="134dp"
+            android:layout_marginTop="16dp"
+            app:cardBackgroundColor="@color/gray"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@android:color/transparent"
+            app:strokeWidth="0dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:id="@+id/weatherIcon"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:contentDescription="Weather icon"
-                    android:src="@drawable/ic_cloudy" />
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="16dp">
 
                 <TextView
-                    android:id="@+id/weatherTemp"
+                    android:id="@+id/weatherLocation"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:text="34°C"
+                    android:text="Location"
                     android:textColor="@color/text_primary"
-                    android:textSize="32sp"
+                    android:textSize="16sp"
                     android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/weatherCondition"
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:text="Cloudy"
-                    android:textColor="@color/text_secondary"
-                    android:textSize="16sp" />
+                    android:layout_marginTop="8dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/weatherIcon"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:contentDescription="Weather icon"
+                        android:src="@drawable/ic_cloudy" />
+
+                    <TextView
+                        android:id="@+id/weatherTemp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="34°C"
+                        android:textColor="@color/text_primary"
+                        android:textSize="32sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/weatherCondition"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:text="Cloudy"
+                        android:textColor="@color/text_primary"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/weatherHighTemp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="H: 33°C"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/weatherLowTemp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:text="L: 24°C"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp" />
+                </LinearLayout>
             </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:id="@+id/myListTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="44dp"
+            android:text="My List"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/weatherCard" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/myListCard"
+            android:layout_width="340dp"
+            android:layout_height="63dp"
+            android:layout_marginTop="8dp"
+            app:cardBackgroundColor="@color/gray"
+            app:cardCornerRadius="18dp"
+            app:cardElevation="6dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/myListTitle"
+            app:strokeColor="@android:color/transparent"
+            app:strokeWidth="0dp">
 
             <LinearLayout
+                android:id="@+id/myListButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:orientation="horizontal">
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="16dp"
+                android:weightSum="1">
 
+                <!-- Icon -->
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/background_list"
+                    android:contentDescription="Reminder icon"
+                    android:src="@drawable/ic_list" />
+
+                <!-- Reminder Text -->
                 <TextView
-                    android:id="@+id/weatherHighTemp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:text="Reminder"
+                    android:textColor="@color/text_primary"
+                    android:textSize="18sp" />
+
+                <!-- Reminder Count -->
+                <TextView
+                    android:id="@+id/reminderCount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="H: 33°C"
+                    android:gravity="center_vertical"
+                    android:paddingRight="10dp"
+                    android:text="0"
                     android:textColor="@color/text_secondary"
-                    android:textSize="14sp" />
+                    android:textSize="18sp" />
 
-                <TextView
-                    android:id="@+id/weatherLowTemp"
+                <!-- Arrow Icon -->
+                <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:text="L: 24°C"
-                    android:textColor="@color/text_secondary"
-                    android:textSize="14sp" />
+                    android:src="@drawable/ic_arrow_right" />
             </LinearLayout>
-        </LinearLayout>
-    </com.google.android.material.card.MaterialCardView>
 
-    <!-- Reminder Section -->
-    <TextView
-        android:id="@+id/myListTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:text="My List"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/weatherCard" />
-
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/myListCard"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        app:cardElevation="2dp"
-        app:cardCornerRadius="8dp"
-        app:layout_constraintTop_toBottomOf="@id/myListTitle"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        </com.google.android.material.card.MaterialCardView>
 
         <LinearLayout
-            android:id="@+id/myListButton"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:id="@+id/newReminderButton"
+            android:layout_width="220dp"
+            android:layout_height="57dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="?android:selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center_vertical"
             android:orientation="horizontal"
-            android:padding="16dp">
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
 
+            <!-- Plus Icon -->
             <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/background_blue_circle"
+                android:contentDescription="Add new reminder"
+                android:src="@drawable/ic_white_plus" />
+
+            <!-- New Reminder Text -->
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="Reminder icon"
-                android:src="@drawable/ic_list" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_weight="1"
-                android:text="Reminders"
-                android:textColor="@color/text_primary"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/reminderCount"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="1"
-                android:textColor="@color/text_secondary"
-                android:textSize="16sp" />
+                android:gravity="center_vertical"
+                android:text="New Reminder"
+                android:textColor="#1565C0"
+                android:textSize="19sp"
+                android:textStyle="bold" />
         </LinearLayout>
-    </com.google.android.material.card.MaterialCardView>
 
-    <!-- Add New Reminder Button -->
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/newReminderButton"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="336dp"
-        android:text="+ Add Reminder"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/myListCard" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:background="@color/black"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="0dp"
+            android:elevation="6dp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- Overlay untuk hasil pencarian -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/searchResultsRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="837dp"
+        android:layout_marginTop="70dp"
+        android:background="@color/background_light"
+        android:padding="16dp"
+        android:visibility="gone" />
+</FrameLayout>
+
+
+

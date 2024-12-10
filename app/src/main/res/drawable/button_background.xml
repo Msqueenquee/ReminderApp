@@ -1,0 +1,17 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Background saat tombol ditekan -->
+    <item android:state_pressed="true">
+        <shape android:shape="rectangle">
+            <solid android:color="#B0C4DE" /> <!-- Warna biru muda -->
+            <corners android:radius="8dp" /> <!-- Sudut melengkung -->
+        </shape>
+    </item>
+
+    <!-- Background default -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#4682B4" /> <!-- Warna biru -->
+            <corners android:radius="8dp" /> <!-- Sudut melengkung -->
+        </shape>
+    </item>
+</selector>

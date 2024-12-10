@@ -1,126 +1,319 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:padding="16dp"
-    android:background="@android:color/white"
-    tools:context=".NewReminderActivity">
+    android:background="#FFFFFF">>
 
-    <!-- Toolbar Section -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:paddingBottom="16dp">
-
-        <!-- Cancel Button -->
-        <TextView
-            android:id="@+id/cancel_button"
-            android:layout_width="wrap_content"
-            android:layout_height="52dp"
-            android:layout_weight="1"
-            android:clickable="true"
-            android:gravity="start"
-            android:onClick="onCancelClicked"
-            android:padding="8dp"
-            android:text="Cancel"
-            android:textColor="@android:color/holo_blue_dark" />
-
-        <!-- Title -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="New Reminder"
-            android:textColor="@android:color/black"
-            android:textStyle="bold"
-            android:textSize="18sp"
-            android:gravity="center"
-            android:layout_weight="2" />
-
-        <!-- Add Button -->
-        <TextView
-            android:id="@+id/add_button"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_weight="1"
-            android:clickable="true"
-            android:gravity="end"
-            android:onClick="onAddClicked"
-            android:padding="8dp"
-            android:text="Add"
-            android:textColor="@android:color/holo_blue_dark" />
-    </LinearLayout>
-
-    <!-- Input Section -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="@android:color/darker_gray"
-        android:padding="16dp"
-        android:layout_marginBottom="16dp">
+        android:background="#FFFFFF"
+        android:gravity="center_vertical">
 
-        <!-- Title EditText -->
-        <EditText
-            android:id="@+id/titleEditText"
+        <!-- Header dengan tombol Cancel dan Add -->
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:hint="Title"
-            android:inputType="text"
-            android:singleLine="true"
-            android:padding="12dp"
-            android:elevation="4dp"
-            android:background="@drawable/edittext_background"
-            android:textColorHint="@android:color/darker_gray"
-            android:textColor="@android:color/black" />
-
-        <!-- Notes EditText -->
-        <EditText
-            android:id="@+id/notesEditText"
-            android:layout_width="match_parent"
-            android:layout_height="62dp"
-            android:background="@drawable/edittext_background"
-            android:hint="Notes"
-            android:elevation="4dp"
-            android:inputType="textMultiLine"
-            android:padding="12dp"
-            android:textColor="@android:color/black"
-            android:textColorHint="@android:color/darker_gray" />
-    </LinearLayout>
-
-    <!-- Detail Section -->
-    <LinearLayout
-        android:id="@+id/detail_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:color/darker_gray"
-        android:clickable="true"
-        android:focusable="true"
-        android:orientation="horizontal"
-        android:padding="16dp"
-        android:onClick="onDetailClicked">
-
-        <!-- Detail Text -->
-        <TextView
-            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Detail"
-            android:textColor="@android:color/black"
-            android:textSize="16sp" />
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingBottom="16dp">
 
-        <!-- Arrow Icon -->
-        <ImageView
-            android:id="@+id/reminderImageView"
-            android:layout_width="34dp"
-            android:layout_height="21dp"
-            android:src="@android:drawable/arrow_down_float"
-            app:tint="@android:color/black" />
+            <TextView
+                android:id="@+id/cancelButton"
+                android:layout_width="68dp"
+                android:layout_height="39dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:text="Cancel"
+                android:textColor="@android:color/holo_blue_dark"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/newReminderTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:baselineAligned="false"
+                android:gravity="center"
+                android:text="New Reminder"
+                android:textColor="#000000"
+                android:textSize="19sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/addButton"
+                android:layout_width="48dp"
+                android:layout_height="39dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:text="Add"
+                android:textColor="@android:color/holo_blue_dark"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+
+        <!-- Card untuk Title dan Notes -->
+        <LinearLayout
+            android:layout_width="334dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/rounded_background"
+            android:elevation="6dp"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Input Title -->
+            <EditText
+                android:id="@+id/titleInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:hint="Title"
+                android:inputType="text"
+                android:padding="8dp"
+                android:textColorHint="#9E9E9E"
+                android:textColor="#000000"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginTop="4dp"
+                android:background="#000000" />
+
+            <!-- Input Notes -->
+            <EditText
+                android:id="@+id/notesInput"
+                android:layout_width="match_parent"
+                android:layout_height="78dp"
+                android:layout_marginTop="8dp"
+                android:background="@android:color/transparent"
+                android:gravity="top"
+                android:hint="Notes"
+                android:inputType="textMultiLine"
+                android:padding="8dp"
+                android:textColorHint="#9E9E9E"
+                android:textColor="#000000"/>
+        </LinearLayout>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="16dp" />
+
+        <LinearLayout
+            android:layout_width="339dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/rounded_background"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <!-- Switch untuk menampilkan Detail -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="8dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Details"
+                    android:textColor="#000000"
+                    android:textSize="16sp" />
+
+                <Switch
+                    android:id="@+id/detailSwitch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <!-- Date, Time, and Add Photo -->
+            <LinearLayout
+                android:id="@+id/detailSection"
+                android:layout_width="305dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/background_rounded_cardtitle"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="8dp"
+                android:visibility="gone">
+
+                <!-- Date Switch -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="8dp">
+
+                    <ImageView
+                        android:layout_width="43dp"
+                        android:layout_height="43dp"
+                        android:background="@drawable/background_image"
+                        android:src="@drawable/ic_date" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_weight="1"
+                        android:text="Date"
+                        android:textColor="#000000"
+                        android:textSize="16sp" />
+
+                    <Switch
+                        android:id="@+id/dateSwitch"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+
+                </LinearLayout>
+
+                <!-- CalendarView -->
+
+
+                <!-- Time Switch -->
+                <CalendarView
+                    android:id="@+id/calendarView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="326dp"
+                    android:background="@drawable/transparent_border"
+                    android:textAppearance="@style/CalendarViewTextStyle"
+                    android:visibility="visible" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="8dp">
+
+                    <ImageView
+                        android:layout_width="43dp"
+                        android:layout_height="43dp"
+                        android:background="@drawable/background_time"
+                        android:src="@drawable/ic_time" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_weight="1"
+                        android:text="Time"
+                        android:textColor="#000000"
+                        android:textSize="16sp" />
+
+                    <Switch
+                        android:id="@+id/timeSwitch"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <!-- TimePicker -->
+                <TimePicker
+                    android:id="@+id/timePicker"
+                    style="@style/CustomTimePickerStyle"
+                    android:layout_width="225dp"
+                    android:layout_height="139dp"
+                    android:background="@drawable/transparent_border"
+                    android:timePickerMode="spinner"
+                    android:visibility="gone" />
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/detailSpacer"
+                android:layout_width="match_parent"
+                android:layout_height="21dp"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:id="@+id/detailSection2"
+                android:layout_width="301dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/background_rounded_cardtitle"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="8dp"
+                android:visibility="gone">
+
+
+                <!-- Add Photo -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="8dp">
+
+                    <ImageView
+                        android:layout_width="42dp"
+                        android:layout_height="42dp"
+                        android:background="@drawable/background_addphoto"
+                        android:src="@drawable/ic_add_photo" />
+
+                    <TextView
+                        android:id="@+id/addPhotoButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="Take Photo"
+                        android:textColor="@android:color/black" />
+                </LinearLayout>
+
+                <!-- Add Gallery -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="8dp">
+
+                    <ImageView
+                        android:layout_width="42dp"
+                        android:layout_height="42dp"
+                        android:background="@drawable/background_gallery"
+                        android:src="@drawable/ic_gallery" />
+
+                    <TextView
+                        android:id="@+id/addGalleryButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="Choose from Gallery"
+                        android:textColor="@android:color/black" />
+                </LinearLayout>
+
+                <!-- Photo Preview -->
+                <ImageView
+                    android:id="@+id/photoPreview"
+                    android:layout_width="84dp"
+                    android:layout_height="90dp"
+                    android:layout_marginTop="16dp"
+                    android:scaleType="centerCrop"
+                    android:visibility="gone" />
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/detailSpacer2"
+                android:layout_width="match_parent"
+                android:layout_height="21dp"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+
     </LinearLayout>
-
-</LinearLayout>
+</ScrollView>

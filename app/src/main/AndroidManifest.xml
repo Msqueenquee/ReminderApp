@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.reminderapp">
-    <!-- Izin akses jaringan dan internet untuk Firebase Realtime Database -->
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -10,6 +10,12 @@
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
 
     <application
         android:allowBackup="true"
@@ -22,10 +28,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ReminderApp"
         tools:targetApi="31">
+
+        <receiver
+            android:name=".ReminderReceiver"
+            android:exported="true" />
+
+        <activity android:name=".FullscreenImageActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+
         <activity
             android:name=".MyListActivity"
             android:exported="false" />
-        <!-- Meta-data untuk Firebase Cloud Messaging dan pengaturan default -->
+        <activity
+            android:name=".NewReminderActivity"
+            android:exported="false" /> <!-- Meta-data untuk Firebase Cloud Messaging dan pengaturan default -->
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_icon"
             android:resource="@mipmap/ic_launcher" />
@@ -52,12 +68,6 @@
             android:exported="false" />
         <activity
             android:name=".HomeActivity"
-            android:exported="false" />
-        <activity
-            android:name=".NewReminderActivity"
-            android:exported="false" />
-        <activity
-            android:name=".DetailActivity"
             android:exported="false" />
     </application>
 

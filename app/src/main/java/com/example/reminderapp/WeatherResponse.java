@@ -7,12 +7,14 @@ public class WeatherResponse {
 
     public static class Main {
         public float temp;
-        public float temp_min;
         public float temp_max;
+        public float temp_min;
     }
 
     public static class Weather {
         public String description;
+        public String main;
         public String icon;
     }
 }
+

@@ -5,4 +5,21 @@
     <color name="text_secondary">#666666</color>
     <color name="weather_card_background">#F5F5F5</color>
     <color name="purple_200">#BB86FC</color>
+    <color name="gray">#D3D3D3</color>
+    <color name="light_gray">#D3D3D3</color>
+    <color name="black">#000000</color>
+    <color name="orange">#FFA500</color>
+    <color name="transparent">#00000000</color>
+    <color name="shadow_color">#80000000</color>
+    <color name="kuning_cerah">#FFEB3B</color> <!-- Kuning cerah -->
+    <color name="abu_abu_berawan">#B0BEC5</color> <!-- Abu-abu berawan -->
+    <color name="blue_hujan">#1976D2</color> <!-- Biru hujan -->
+    <color name="statusBarColor">#FFFFFF</color>
+    <color name="splash_background">#FF6200EE</color>
+
+
+
+    <!-- Light gray color (abu-abu putih) -->
+
+
 </resources>

@@ -1,39 +1,60 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal"
     android:padding="8dp">
 
     <CheckBox
-        android:id="@+id/reminder_checkbox"
+        android:id="@+id/reminderCheckBox"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <LinearLayout
-        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:orientation="vertical"
-        android:paddingStart="8dp">
+        android:layout_alignParentStart="true" />
 
-        <TextView
-            android:id="@+id/reminder_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Title"
-            android:textStyle="bold" />
+    <TextView
+        android:id="@+id/titleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/reminderCheckBox"
+        android:layout_marginStart="8dp"
+        android:text="Reminder Title"
+        android:textStyle="bold"
+        android:textSize="17sp"
+        android:textColor="@color/black"/>
 
-        <TextView
-            android:id="@+id/reminder_detail"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Detail" />
-    </LinearLayout>
+    <TextView
+        android:id="@+id/noteTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/titleTextView"
+        android:layout_toEndOf="@id/reminderCheckBox"
+        android:layout_marginStart="8dp"
+        android:text="Reminder Note"
+        android:textSize="14sp" />
 
-    <ImageView
-        android:id="@+id/reminder_photo"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:src="@drawable/ic_launcher_foreground" />
-</LinearLayout>
+    <TextView
+        android:id="@+id/timeTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/noteTextView"
+        android:layout_toEndOf="@id/reminderCheckBox"
+        android:layout_marginStart="8dp"
+        android:text="Reminder Time"
+        android:textSize="14sp"
+        android:textColor="#FF0000"/>
+
+        <ImageView
+            android:id="@+id/photoImageView"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_below="@id/timeTextView"
+            android:layout_marginTop="8dp"
+            android:layout_toEndOf="@id/reminderCheckBox"
+            android:contentDescription="Reminder Photo"
+            android:visibility="gone" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/photoImageView"
+        android:layout_marginTop="8dp"
+        android:background="#E0E0E0" />
+</RelativeLayout>
